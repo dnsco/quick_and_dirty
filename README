@@ -1,0 +1,5 @@
+Here Is a collection of quick and dirty shellscripts that get me through the day
+
+alarm.rb is what I use to wake up in the morning (in conjunction with atd)
+
+passdeath is for uploading you public key to a remote host so there is no need to constantly use a password
