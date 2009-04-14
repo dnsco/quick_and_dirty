@@ -10,8 +10,9 @@ class Mixer
 	end
 
 	def mix
-		40.upto(92) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
+		40.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
 	end
+
 end
 
 	
@@ -25,15 +26,21 @@ class Song
   end
 
 	def second
-	
-		@second = Array[]
+    songs = Array[] 
+    @second = songs[rand(songs.size)]
 	end
+
+  #def songs
+  #  @songs = Array[self.first, self.second]
+  #end
 end
 
 class Player
-	def play(song)
+
+  def play(song)
 		system "mpg123 '#{song}' &"
 	end
+
 end
 
 @mixer = Mixer.new
