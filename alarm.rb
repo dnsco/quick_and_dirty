@@ -10,7 +10,7 @@ class Mixer
 	end
 
 	def mix
-		40.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
+		50.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
 	end
 
 end
@@ -21,7 +21,9 @@ class Song
 	def first
 		songs = Array[ 
       '/media/archive/audio/ilovelucas/from ezra/Modeselektor/Hello Mom!/06 Ziq Zaq.mp3', 
-      '/media/archive/audio/mestuff/The Arcade Fire - Funeral - Neighborhood #1 (Tunnels).mp3']
+      '/media/archive/audio/mestuff/The Arcade Fire - Funeral - Neighborhood #1 (Tunnels).mp3',
+      "/home/lover/Music/BENJY/music/other\ leahy/Hide\ and\ Seek.mp3",
+      "/media/archive/audio/\!\!\!\ -\ Take\ Ecstacy\ With\ Me-Get\ Up-CD\ -\ Take\ Ecstasy\ With\ Me.mp3"]
     @first = songs[rand(songs.size)]
   end
 
