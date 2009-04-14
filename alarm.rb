@@ -18,12 +18,15 @@ end
 class Song
 
 	def first
-		@first = '/media/archive/audio/ilovelucas/from ezra/Modeselektor/Hello Mom!/06 Ziq Zaq.mp3'
-	end
+		songs = Array[ 
+      '/media/archive/audio/ilovelucas/from ezra/Modeselektor/Hello Mom!/06 Ziq Zaq.mp3', 
+      '/media/archive/audio/mestuff/The Arcade Fire - Funeral - Neighborhood #1 (Tunnels).mp3']
+    @first = songs[rand(songs.size)]
+  end
 
 	def second
 	
-		@second = "/media/archive/audio/mestuff/The Arcade Fire - Funeral - Neighborhood #1 (Tunnels).mp3"
+		@second = Array[]
 	end
 end
 
