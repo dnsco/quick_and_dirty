@@ -28,7 +28,7 @@ class MixerLinux
 end
 
 	
-class Song
+class SongLinux
 
 	def first
 		songs = Array[ 
@@ -47,9 +47,20 @@ class Song
   #def songs
   #  @songs = Array[self.first, self.second]
   #end
+
 end
 
-class Player
+
+class SongMac
+
+  def first
+    @first = "/Users/vincenttrue/Documents/air.m3u"
+  end
+
+end
+
+
+class PlayerLinux
 
   def play(song)
 		system "mpg123 '#{song}' &"
@@ -57,17 +68,28 @@ class Player
 
 end
 
+class PlayerMac
+  
+  def play(song)
+    system "/Applications/VLC.app/Contents/MacOS/VLC #{song} -Z &"
+  end
+
+end
+
 if $os == "linux"
 
 	@mixer = MixerLinux.new
+  @player = PlayerLinux.new
+  @song = SongLinux.new
+
 end
 
 if $os == "mac"
 	@mixer = MixerMac.new
+  @player = PlayerMac.new
+  @song = SongMac.new
 end
 		
-@player = Player.new
-@song = Song.new
 
 @mixer.mute
 @player.play(@song.first)
