@@ -1,23 +1,27 @@
 #!/usr/bin/ruby
 
+# set $os with either mac or linux
+$os = "linux"
 
-$os = linux
-
-class Mixer
-
-	def mute_linux
-		system "amixer -c 0 -- sset Master 0%"
-	end
+class MixerMac
 	
-	def mute_mac
+	def mute
 		system "osascript -e 'set Volume 0'" 
 	end
 		
-	def mix_mac
+	def mix
 		0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(5) }
 	end	
 
-	def mix_linux
+end
+
+class MixerLinux
+
+	def mute
+		system "amixer -c 0 -- sset Master 0%"
+	end
+
+	def mix
 		42.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
 	end
 
@@ -53,7 +57,15 @@ class Player
 
 end
 
-@mixer = Mixer.new
+if $os == "linux"
+
+	@mixer = MixerLinux.new
+end
+
+if $os == "mac"
+	@mixer = MixerMac.new
+end
+		
 @player = Player.new
 @song = Song.new
 
