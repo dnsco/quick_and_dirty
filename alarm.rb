@@ -1,22 +1,23 @@
 #!/usr/bin/ruby
-#class Alarm
-#
-#end
+
+
+$os = linux
 
 class Mixer
 
 	def mute_linux
 		system "amixer -c 0 -- sset Master 0%"
-
 	end
 	
 	def mute_mac
 		system "osascript -e 'set Volume 0'" 
-	def mix
-		# for the mac
-		#0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(5) }
+	end
 		
-		#for thelinux
+	def mix_mac
+		0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(5) }
+	end	
+
+	def mix_linux
 		42.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
 	end
 
