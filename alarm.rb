@@ -5,11 +5,18 @@
 
 class Mixer
 
-	def mute
+	def mute_linux
 		system "amixer -c 0 -- sset Master 0%"
-	end
 
+	end
+	
+	def mute_mac
+		system "osascript -e 'set Volume 0'" 
 	def mix
+		# for the mac
+		#0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(5) }
+		
+		#for thelinux
 		42.upto(82) { |i| system "amixer -c 0 -- sset Master #{i}%"; sleep(1) }	
 	end
 
