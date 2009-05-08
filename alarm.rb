@@ -10,7 +10,7 @@ class MixerMac
 	end
 		
 	def mix
-		0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(5) }
+		0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(15) }
 	end	
 
 end
