@@ -2,6 +2,6 @@ Here Is a collection of quick and dirty shellscripts that get me through the day
 
 alarm.rb is what I use to wake up in the morning (in conjunction with cron or atd)
 
-dusort recurssively sorts all of the files in a directory by size and pipes that result into ~/filesize then opens thatin less.s
+dusort recurssively sorts all of the files in a directory by size and pipes that result into ~/.dusort then opens that in less
 
 passdeath is for uploading you public key to a remote host so there is no need to constantly use a password
