@@ -1,2 +1,2 @@
-du|sort -nr|less>~/filesizes
-less ~/filesizes
+du|sort -nr|less>~/.dusort
+less ~/.dusort
