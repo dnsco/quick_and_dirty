@@ -8,7 +8,7 @@ class MixerMac
 	def mute
 		system "osascript -e 'set Volume 0'" 
 	end
-		
+
 	def mix
 		0.upto(10) { |i| system "osascript -e 'set Volume #{i}'"; sleep(15) }
 	end	
@@ -28,33 +28,12 @@ class MixerLinux
 end
 
 	
-class SongLinux
-
-	def first
-		songs = Array[ 
-      '/media/archive/audio/ilovelucas/from ezra/Modeselektor/Hello Mom!/06 Ziq Zaq.mp3', 
-      '/media/archive/audio/mestuff/The Arcade Fire - Funeral - Neighborhood #1 (Tunnels).mp3',
-      "/home/lover/Music/BENJY/music/other\ leahy/Hide\ and\ Seek.mp3",
-      "/media/archive/audio/\!\!\!\ -\ Take\ Ecstacy\ With\ Me-Get\ Up-CD\ -\ Take\ Ecstasy\ With\ Me.mp3"]
-    @first = songs[rand(songs.size)]
-  end
-
-	def second
-    songs = Array[] 
-    @second = songs[rand(songs.size)]
-	end
-
-  #def songs
-  #  @songs = Array[self.first, self.second]
-  #end
-
-end
 
 
-class SongMac
+class Playlist
 
-  def first
-    @first = "/Users/vincenttrue/Documents/air.m3u"
+  def playlist
+    @playlist = "/Users/vincenttrue/Documents/air.m3u"
   end
 
 end
@@ -80,18 +59,15 @@ if $os == "linux"
 
 	@mixer = MixerLinux.new
   @player = PlayerLinux.new
-  @song = SongLinux.new
-
 end
 
 if $os == "mac"
 	@mixer = MixerMac.new
   @player = PlayerMac.new
-  @song = SongMac.new
 end
 		
+@Playlist = Playlist.new
 
 @mixer.mute
 @player.play(@song.first)
 @mixer.mix
-#@player.play(@song.second)
