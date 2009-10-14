@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 # set $os with either mac or linux
 $os = "linux"
@@ -33,7 +33,7 @@ end
 class Playlist
 
   def playlist
-    @playlist = "/Users/vincenttrue/Documents/air.m3u"
+    @playlist = ARGV[0]
   end
 
 end
@@ -55,19 +55,17 @@ class PlayerMac
 
 end
 
-if $os == "linux"
-
-	@mixer = MixerLinux.new
+case $os
+when "linux"
+  @mixer = MixerLinux.new
   @player = PlayerLinux.new
-end
-
-if $os == "mac"
-	@mixer = MixerMac.new
+when "mac"
+  @mixer = MixerMac.new
   @player = PlayerMac.new
 end
 		
-@Playlist = Playlist.new
+@playlist = Playlist.new
 
 @mixer.mute
-@player.play(@song.first)
+@player.play(@playlist)
 @mixer.mix
