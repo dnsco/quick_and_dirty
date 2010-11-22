@@ -65,7 +65,7 @@ class Alarm
   end
 
   def playlist
-    @playlist = ARGV[0] ? ARGV[0] : "playlist.m3u"
+    @playlist = ARGV[0] || "playlist.m3u"
   end
 end
 
