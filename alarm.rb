@@ -3,7 +3,7 @@ module System
   def self.os
     @os ||= case RUBY_PLATFORM
             when /linux/ then "Linux"
-            when /darwin/ then "Lac"
+            when /darwin/ then "Mac"
             end
   end
 end
